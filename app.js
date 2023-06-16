@@ -7,26 +7,31 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let items = ["Eat", "Sleep", "Code", "Repeat"];
+let items = [];
 let workItems = [];
 
 app.get('/', (req, res) => {
 
-    let formatedDate = date();
+    let formatedDate = date.getDate();
     res.render("list", {listTitle: formatedDate, listArray: items});
 });
 
-app.post('/', (req, res)=>{
+app.post('/', (req, res) => {
     let item = req.body.newItem;
-    
-    if(req.body.button === "Work"){
-        workItems.push(item);
-        res.redirect("/work");
-    }else{
-        items.push(item);
+
+    if (item === null || item.trim() === "") {
+        // Handle empty input
         res.redirect('/');
+    } else {
+        if (req.body.button === "Work") {
+            workItems.push(item);
+            res.redirect("/work");
+        } else {
+            items.push(item);
+            res.redirect('/');
+        }
     }
-})
+});
 
 
 app.get("/work", (req, res)=>{
