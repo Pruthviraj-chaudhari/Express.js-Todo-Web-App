@@ -7,8 +7,8 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let items = [];
-let workItems = [];
+const items = [];
+const workItems = [];
 
 app.get('/', (req, res) => {
 

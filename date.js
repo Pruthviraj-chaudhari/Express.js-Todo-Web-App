@@ -1,7 +1,7 @@
 // module.exports.getDate = function() {
 
-//     let currentDate = new Date();
-//     let options = {
+//     const currentDate = new Date();
+//     const options = {
 //         weekday: "long",
 //         day: "numeric",
 //         month: "long",
@@ -14,8 +14,8 @@
 
 // Arrow Function
 exports.getDate = () => {
-    let currentDate = new Date();
-    let options = {
+    const currentDate = new Date();
+    const options = {
         weekday: "long",
         day: "numeric",
         month: "long",
@@ -26,8 +26,8 @@ exports.getDate = () => {
 
 // Another Function
 exports.getDay = function() {
-    let currentDate = new Date();
-    let options = {
+    const currentDate = new Date();
+    const options = {
         weekday: "long",
     }
     return currentDate.toLocaleDateString("en-US", options);
@@ -35,8 +35,8 @@ exports.getDay = function() {
 
 // Another Function
 exports.getYear = function() {
-    let currentDate = new Date();
-    let options = {
+    const currentDate = new Date();
+    const options = {
         month: "long",
         year: "numeric"
     }
