@@ -11,7 +11,6 @@ const items = [];
 const workItems = [];
 
 app.get('/', (req, res) => {
-
     let formatedDate = date.getDate();
     res.render("list", {listTitle: formatedDate, listArray: items});
 });
@@ -33,7 +32,6 @@ app.post('/', (req, res) => {
     }
 });
 
-
 app.get("/work", (req, res)=>{
     let title = "Work";
     res.render("list", {listTitle: title, listArray: workItems});
@@ -43,11 +41,6 @@ app.post("/work", (req, res)=>{
     let item = req.body.newItem;
     workItems.push(item);
     req.redirect("/work");
-})
-
-
-app.get("/about", (req, res)=>{
-    res.render("about");
 })
 
 app.listen(3000, () => {
